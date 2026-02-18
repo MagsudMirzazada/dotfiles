@@ -1,0 +1,10 @@
+# Zsh aliases — add your custom aliases here.
+alias ll='ls -hal'
+alias la='ls -A'
+alias l='ls -CF'
+
+# Use batcat as bat (Debian renames the binary to avoid conflicts)
+alias bat='batcat'
+
+# Fuzzy-find files and open in Neovim with bat preview
+alias nv='nvim $(fzf -m --preview="batcat --color=always {}")'
