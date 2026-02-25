@@ -6,5 +6,9 @@ alias l='ls -CF'
 # Use batcat as bat (Debian renames the binary to avoid conflicts)
 alias bat='batcat'
 
+# fzf default options
+export FZF_DEFAULT_OPTS="--style full --preview 'batcat --style=numbers --color=always {}'"
+# export FZF_DEFAULT_OPTS="--layout=reverse --height=40% --border --style full --preview 'batcat --style=numbers --color=always {}'"
+
 # Fuzzy-find files and open in Neovim with bat preview
-alias nv='nvim $(fzf -m --preview="batcat --color=always {}")'
+alias nv='nvim $(fzf -m --style full --preview "batcat --style=numbers --color=always {}")'
