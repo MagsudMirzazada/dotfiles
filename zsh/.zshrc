@@ -31,4 +31,6 @@ source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # Initialize Starship prompt
 eval "$(starship init zsh)"
 
-# fzf integration is appended below by ~/.fzf/install --all
+# fzf
+[[ -d ~/.fzf/bin ]] && export PATH="$HOME/.fzf/bin:$PATH"
+source <(fzf --zsh)
