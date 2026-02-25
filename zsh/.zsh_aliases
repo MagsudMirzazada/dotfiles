@@ -1,7 +1,13 @@
 # Zsh aliases — add your custom aliases here.
-alias ll='ls -hal'
-alias la='ls -A'
-alias l='ls -CF'
+alias ls='ls --color=auto'
+alias ll='ls -hal --color=auto'
+alias la='ls -A --color=auto'
+alias l='ls -CF --color=auto'
+
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+alias diff='diff --color=auto'
 
 # Use batcat as bat (Debian renames the binary to avoid conflicts)
 alias bat='batcat'
