@@ -20,6 +20,10 @@ setopt pushdignoredups
 
 # Key bindings (emacs mode)
 bindkey -e
+bindkey "^[[1;5D" backward-word
+bindkey "^[[1;5C" forward-word
+bindkey "^[[5D" backward-word
+bindkey "^[[5C" forward-word
 
 # Load aliases
 [[ -f ~/.zsh_aliases ]] && source ~/.zsh_aliases
