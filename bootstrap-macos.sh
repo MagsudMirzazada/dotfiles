@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Set up these dotfiles on macOS. Safe to re-run.
 #   1. brew bundle (Brewfile)
-#   2. Install TPM (tmux plugin manager) and the tmux plugins
+#   2. Install TPM (tmux plugin manager), the tmux plugins and the LazyVim starter
 #   3. Move existing real config files to ~/.dotfiles_backup_<timestamp>/
 #   4. stow starship tmux zsh-macos ghostty
 
@@ -41,6 +41,16 @@ if [[ ! -d "$TPM_DIR" ]]; then
   git clone https://github.com/tmux-plugins/tpm "$TPM_DIR"
 else
   warn "TPM already installed, skipping"
+fi
+
+# LazyVim starter (same as debian-supplement). Never overwrite an existing config.
+NVIM_DIR="$HOME/.config/nvim"
+if [[ ! -e "$NVIM_DIR" ]]; then
+  info "Installing LazyVim starter..."
+  git clone --depth 1 https://github.com/LazyVim/starter "$NVIM_DIR"
+  rm -rf "$NVIM_DIR/.git"
+else
+  warn "$NVIM_DIR already exists, skipping LazyVim"
 fi
 
 # 3. Back up real (non-symlink) files that would block stow
