@@ -1,0 +1,37 @@
+# macOS version of ../zsh/.zsh_aliases
+# Differences: BSD ls (-G), bat instead of batcat, pbcopy instead of xclip.
+
+export CLICOLOR=1
+
+alias ls='ls -G'
+alias ll='ls -halG'
+alias la='ls -AG'
+alias l='ls -CFG'
+
+alias grep='grep --color=auto'
+alias fgrep='grep -F --color=auto'
+alias egrep='grep -E --color=auto'
+alias diff='diff --color=auto'
+
+# fzf default options
+export FZF_DEFAULT_OPTS="--style full --preview 'bat --style=numbers --color=always {}'"
+
+# CTRL-T: paste selected file/directory path onto command line
+export FZF_CTRL_T_OPTS="
+  --walker-skip .git,node_modules,target
+  --preview 'bat -n --color=always {}'
+  --bind 'ctrl-/:change-preview-window(down|hidden|)'"
+
+# CTRL-R: search command history
+export FZF_CTRL_R_OPTS="
+  --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort'
+  --color header:italic
+  --header 'Press CTRL-Y to copy command into clipboard'"
+
+# ALT-C: cd into selected directory
+export FZF_ALT_C_OPTS="
+  --walker-skip .git,node_modules,target
+  --preview 'tree -C {}'"
+
+# Fuzzy-find files and open in Neovim with bat preview
+alias nv='nvim $(fzf -m --style full --preview "bat --style=numbers --color=always {}")'
