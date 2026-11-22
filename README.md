@@ -15,14 +15,14 @@ Stow only one of `zsh` or `zsh-macos` on a machine. They write the same files.
 
 ## macOS
 
-Requires [Homebrew](https://brew.sh). Install Ghostty separately (`brew install --cask ghostty`).
+Requires [Homebrew](https://brew.sh).
 
 ```sh
 git clone https://github.com/MagsudMirzazada/dotfiles ~/dotfiles
 ~/dotfiles/bootstrap-macos.sh
 ```
 
-The script installs the packages in `Brewfile`, installs TPM and the tmux plugins, moves any existing config files to `~/.dotfiles_backup_<timestamp>/`, then stows `starship tmux zsh-macos ghostty`. It is safe to re-run.
+The script installs the packages in `Brewfile` (including Ghostty), installs TPM and the tmux plugins, moves any existing config files to `~/.dotfiles_backup_<timestamp>/`, then stows `starship tmux zsh-macos ghostty`. It is safe to re-run.
 
 Manual equivalent:
 
